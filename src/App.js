@@ -66,7 +66,7 @@ export default function App() {
       <nav className="nav-bar">
         <div className="logo">
           <span role="img">🍿</span>
-          <h1>usePopcorn</h1>
+          <h1>WatchEmAll</h1>
         </div>
         <input
           className="search"
@@ -137,7 +137,28 @@ export default function App() {
                 </div>
               </div>
 
-              
+              <ul className="list">
+                {watched.map((movie) => (
+                  <li key={movie.imdbID}>
+                    <img src={movie.Poster} alt={`${movie.Title} poster`} />
+                    <h3>{movie.Title}</h3>
+                    <div>
+                      <p>
+                        <span>⭐️</span>
+                        <span>{movie.imdbRating}</span>
+                      </p>
+                      <p>
+                        <span>🌟</span>
+                        <span>{movie.userRating}</span>
+                      </p>
+                      <p>
+                        <span>⏳</span>
+                        <span>{movie.runtime} min</span>
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </>
           )}
         </div>
