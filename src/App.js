@@ -1,5 +1,6 @@
 import { useState } from "react";
 import NavBar from "./components/NavBar";
+import Box from "./components/Box";
 
 const tempMovieData = [
   {
@@ -67,30 +68,7 @@ export default function App() {
       <NavBar query={query} setQuery={setQuery} movies={movies}/>
 
       <main className="main">
-        <div className="box">
-          <button
-            className="btn-toggle"
-            onClick={() => setIsOpen1((open) => !open)}
-          >
-            {isOpen1 ? "–" : "+"}
-          </button>
-          {isOpen1 && (
-            <ul className="list">
-              {movies?.map((movie) => (
-                <li key={movie.imdbID}>
-                  <img src={movie.Poster} alt={`${movie.Title} poster`} />
-                  <h3>{movie.Title}</h3>
-                  <div>
-                    <p>
-                      <span>🗓</span>
-                      <span>{movie.Year}</span>
-                    </p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
+        <Box setIsOpen1={setIsOpen1} isOpen1={isOpen1} movies={movies} />
 
         <div className="box">
           <button
